@@ -1,0 +1,26 @@
+<h1>Sign up</h1>
+    <%= form_with(model: @user, local: true) do |f| %>
+    <ul>  
+        <%= render 'layouts/error_messages', model: f.object %>
+        
+        <li><%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: 'form-control' %></li>
+
+        <li><%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %></li>
+
+        <li><%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %></li>
+
+        <li><%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %></li>
+      
+
+        <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+      </ul>
+    <% end %>
+
+<ul>
+    <li><%= link_to 'loginページへ戻る', root_url %></li>
+</ul>   
+    
