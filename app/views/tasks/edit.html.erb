@@ -1,5 +1,4 @@
-<h1>id: <%= @task.id %>番目のタスク編集ページ</h1>
+<h1>id: <%= @task.id %>タスク編集1ページ</h1>
 
-<%= render 'form', task: @task %>
-
+<%= render 'form', task: @task.id %>
 <%= link_to '一覧に戻る', tasks_path %>

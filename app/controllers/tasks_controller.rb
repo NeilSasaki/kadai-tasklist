@@ -6,7 +6,13 @@ class TasksController < ApplicationController
     #if logged_in?
       @tasks = current_user.tasks.build
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+      #binding.pry
     #end
+  end
+  
+  def show 
+      #binding.pry
+      @task = current_user.tasks.find(params[:id])
   end
 
   def new
@@ -14,7 +20,6 @@ class TasksController < ApplicationController
   end
 
   def create
-      #@task = Task.new(task_params)
       @task = current_user.tasks.build(task_params)
       
       if @task.save
@@ -24,7 +29,6 @@ class TasksController < ApplicationController
           @tasks = current_user.tasks.order(id: :desc).page(params[:page])
           flash.now[:danger] = 'タスクが投稿されませんでした'
           render :new
-          #どこにrenderすればよい？
       end
   end
 
@@ -48,7 +52,8 @@ class TasksController < ApplicationController
       @task = current_user.tasks.find(params[:id])
       @task.destroy
       flash[:success] = 'タスクは正常に削除されました'
-      redirect_back(fallback_location: root_path)
+      #redirect_back(fallback_location: root_path)
+      redirect_to root_url
   end
   
   private
@@ -63,6 +68,10 @@ class TasksController < ApplicationController
     unless @task
       redirect_to root_url
     end
+  end
+  
+  def set_task
+    @task = current_user.tasks.find(params[:id])
   end
     
 end
