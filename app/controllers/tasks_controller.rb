@@ -4,15 +4,19 @@ class TasksController < ApplicationController
 
   def index
     #if logged_in?
-      @tasks = current_user.tasks.build
+      #@tasks = current_user.tasks.build
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
       #binding.pry
     #end
   end
   
   def show 
-      #binding.pry
-      @task = current_user.tasks.find(params[:id])
+    #binding.pry
+    @task = current_user.tasks.find_by(id: params[:id])
+    unless @task
+      redirect_to root_url
+    end
+      
   end
 
   def new
