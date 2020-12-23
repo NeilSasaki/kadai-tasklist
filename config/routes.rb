@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   
   #put 'tasks/:id', to: 'tasks#update'
   
-  resources :tasks, only: [:index, :new, :create, :destroy, :show, :edit,:update]#
+  resources :tasks# #only: [:index, :new, :create, :destroy, :show, :edit,:update]#
   resources :users, only: [:index, :create] #:new,
 end

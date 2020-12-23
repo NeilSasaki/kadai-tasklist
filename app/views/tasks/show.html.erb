@@ -1,4 +1,7 @@
-<h1><%= current_user.name %>さんのタスク<%= @task.id %>の詳細</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<h1><%= current_user.name %>さんのタスク詳細</h1>
+<!--  @task.id だと タスク総数が表示される。 -->
 <table border="1" cellpadding="5">
     <thead>
         <tr>
@@ -22,7 +25,6 @@
 </table>
 <ul>
     <li><%= link_to '新規タスクの投稿', new_task_path %></li>
-    <li><%#= link_to '一覧に戻る', tasks_path %></li>
     <li><%= link_to 'Logout', logout_path, method: :delete %></li>
 </ul>    
 

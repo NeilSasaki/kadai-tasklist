@@ -1,4 +1,6 @@
-<h1>id: <%= @task.id %>タスク編集1ページ</h1>
-
+<!DOCTYPE html>
+<html lang="ja">
+<h1>タスクの編集ページ</h1>
+<!--@task.id では総タスク数が表示される-->
 <%= render 'form', task: @task.id %>
 <%= link_to '一覧に戻る', tasks_path %>
