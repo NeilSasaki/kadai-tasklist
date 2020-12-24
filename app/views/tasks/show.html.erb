@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!--<!DOCTYPE html>
+<html lang="ja">-->
 <h1><%= current_user.name %>さんのタスク詳細</h1>
 <!--  @task.id だと タスク総数が表示される。 -->
 <table border="1">
@@ -18,9 +18,9 @@
             <th><%= @task.status %></th>
             <th><%= @task.created_at %></th>
             <th><%= link_to '編集',edit_task_path(@task) %></th>
-            <% if current_user == @task.user %>
+            <%# if current_user == @task.user %>
             <th><%= link_to "Delete", @task, method: :delete, data: {confirm:"You sure?" }, class: 'btn' %></th>
-            <% end %>
+            <%# end %>
         </tr>
 </table>
 <ul>

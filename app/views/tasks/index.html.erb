@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!--<!DOCTYPE html>
+<html lang="ja">-->
 <p>ログイン完了ユーザー: <%= current_user.name %>....<%= @tasks.count %>個のタスク</p>
 <h1><%= current_user.name %>さんのタスク一覧</h1>
 <table border="1"><!--#cellpaddingはHTML5で非推奨-->
@@ -19,9 +19,9 @@
             <th><%= task.status %></th>
             <th><%= task.created_at %></th>
             <th><%= link_to '詳細/編集',task %></th>
-            <% if current_user == task.user %>
+            <%# if current_user == task.user %>
                 <th><%= link_to "Delete", task, method: :delete, data: {confirm:"You sure?" }, class: 'btn' %></th>
-            <% end %>
+            <%# end %>
         </tr>
         <% end %>
     </tbody>

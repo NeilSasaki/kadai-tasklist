@@ -9,7 +9,7 @@ class User < ApplicationRecord
     
     #パスワード、パスワード確認のバリデーション                
     validates :password, confirmation: true
-    validates :password_confirmation, presence: true  
+    #validates :password_confirmation, presence: true  
     
     
     has_secure_password

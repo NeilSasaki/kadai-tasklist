@@ -1,17 +1,24 @@
 <%= form_with(model: task, local:true) do |f| %>
-    <%# エラーメッセージ を表示させる%>
-    <% if task.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% task.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+    
+    <%= render 'layouts/error_messages', model: f.object %>
     <div><%= f.label :content, 'タスク' %><%= f.text_field :content %></div>
     <div><%= f.label :status, 'ステータス' %><%= f.text_field :status %></div>
     <%= f.submit '編集完了' %>
+    
+    <%# エラーメッセージ を表示させる-->パーシャルを使う%>
+    <!--<%# if task.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <%# task.errors.full_messages.each do |msg| %>
+            <li><%#= msg %></li>
+          <%# end %>
+        </ul>
+      </div>
+    <%# end %>-->
+    
+    
+    
+    
+    
     
 <% end %>
