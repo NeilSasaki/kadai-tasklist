@@ -10,9 +10,8 @@
       </div>
     <% end %>
 
-    <ul>
-      <li><%= f.label :content, 'タスク' %><%= f.text_field :content %></li>
-      <li><%= f.label :status, 'ステータス' %><%= f.text_field :status %></li>
+    <div><%= f.label :content, 'タスク' %><%= f.text_field :content %></div>
+    <div><%= f.label :status, 'ステータス' %><%= f.text_field :status %></div>
     <%= f.submit '編集完了' %>
-    </ul>
+    
 <% end %>
