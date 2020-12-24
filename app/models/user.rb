@@ -7,12 +7,8 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
     
-    #パスワード、パスワード確認のバリデーション                
-    validates :password, confirmation: true
-    #validates :password_confirmation, presence: true  
-    
-    
     has_secure_password
+    #これだけでvalidatioも完了
     
     has_many :tasks #Userから見たときにタスクが複数ある
 end

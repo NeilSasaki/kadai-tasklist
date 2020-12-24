@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:create, :show, :edit, :destroy]
 
   def index
     #if logged_in?
@@ -24,7 +24,6 @@ class TasksController < ApplicationController
 
   def create
       @task = current_user.tasks.build(task_params)
-      
       if @task.save
           flash[:success] = 'タスクが正常に投稿されました'
           redirect_to root_url
@@ -55,7 +54,6 @@ class TasksController < ApplicationController
       set_task
       @task.destroy
       flash[:success] = 'タスクは正常に削除されました'
-      #redirect_back(fallback_location: root_path)
       redirect_to root_url
   end
   
